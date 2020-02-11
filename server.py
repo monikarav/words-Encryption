@@ -41,9 +41,9 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
                                                        messagestruct.EncMsg(encrypted_text),
                                                        None)
                     sentmsg = pickle.dumps(sentpacket)
-                    print(counter)
-                    counter = counter + 1
-                    print("sent message size :",len(sentmsg))
+                    #print(counter)
+                    #counter = counter + 1
+                    #print("sent message size :",len(sentmsg))
                     self.request.sendall(sentmsg)
                     data = file.read(1024)
                 lastpacket = messagestruct.Message(messagestruct.Hdr(40, None, None), None, None,

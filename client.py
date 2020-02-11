@@ -48,6 +48,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     m1 = pickle.loads(data)
     B = m1.publickey.y
     sharedkey1 = (pow(B, secret_key)) % q
+    print("sharedkey1 ", sharedkey1)
 
     secret_key = randint(999, 999999)
     y = (pow(g, secret_key)) % q
@@ -58,6 +59,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     m1 = pickle.loads(data)
     B = m1.publickey.y
     sharedkey2 = (pow(B, secret_key)) % q
+    print("sharedkey2 ", sharedkey2)
 
     secret_key = randint(999, 999999)
     y = (pow(g, secret_key)) % q
@@ -67,9 +69,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     data = sock.recv(1024)
     m1 = pickle.loads(data)
     B = m1.publickey.y
-    sharedkey3 = (pow(B, secret_key)) % q
-    print("sharedkey1 ", sharedkey1)
-    print("sharedkey2 ", sharedkey2)
+    sharedkey3 = (pow(B, secret_key)) % q   
+    
     print("sharedkey3 ", sharedkey3)
 
     key = str(sharedkey1) + str(sharedkey2) + str(sharedkey3)
@@ -95,7 +96,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             while msgrecv.hdr.opcode != 40 :                
                 decrypted_msg = cipher.decrypt(msgrecv.encmsg.encodedMessage)
                 if msgrecv.hdr.opcode == 100 :
-                     print("stripping")   
+                     #print("stripping")   
                      decrypted_msg = decrypted_msg.rstrip(b'\x00')
                      striped =1
                 file.write(decrypted_msg)
@@ -108,10 +109,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
                 # recv_data += len(temp)
 
 
-                print(counter)
-                counter += 1     
-                print("packet length",len(packrecv))
-                print("opcode ",msgrecv.hdr.opcode)               
+                #print(counter)
+                #counter += 1     
+                #print("packet length",len(packrecv))
+                #print("opcode ",msgrecv.hdr.opcode)               
                 msgrecv = pickle.loads(packrecv)
                                 
         print("file recv")
