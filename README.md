@@ -10,12 +10,20 @@ typedef struct {
 
 
 Hdr hdr; /* Header for a message */
+
 typedef union {
+
 PubKey pubkey;
+
 ReqServ reqserv;
+
 ReqCom reqcom;
+
 EncMsg encmsg;
+
 Disconnect disconnect;
+
 } AllMsg;
+
 } Msg;
     
