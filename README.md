@@ -4,7 +4,11 @@
 *  for client : python3 client.py
 ## Packet structure :
 /*A general message */
+
+
 typedef struct {
+
+
 Hdr hdr; /* Header for a message */
 typedef union {
 PubKey pubkey;
