@@ -2,7 +2,7 @@
 ## Commands to Run :
 *  for server : python3 server.py
 *  for client : python3 client.py
-## Packet structure :
+## Packet structure used in message passing :
 /*A general message */
 
 
