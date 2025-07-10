@@ -1,29 +1,16 @@
-# File-Encryption
-## Commands to Run :
-*  for server : python3 server.py
-*  for client : python3 client.py
-## Packet structure used in message passing :
-/*A general message */
+#program
+##index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Encryption and Decryption Tool</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
 
-
-typedef struct {
-
-
-Hdr hdr; /* Header for a message */
-
-typedef union {
-
-PubKey pubkey;
-
-ReqServ reqserv;
-
-ReqCom reqcom;
-
-EncMsg encmsg;
-
-Disconnect disconnect;
-
-} AllMsg;
-
-} Msg;
-    
